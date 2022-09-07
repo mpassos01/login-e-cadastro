@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="assets/style/index.css">
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+
+</head>
+<body>
+    <div class="container">        
+        <div class="card-login">
+            <h1>Login</h1>
+            <div id="msgError"></div>
+            <div class="label-float">
+                <input type="text" name="usuario" id="usuario" required>
+                <label for="usuario" id="labelUsuario">Usuário</label>
+            </div>
+            <div class="label-float">
+                <input type="password" name="senha" id="senha" required>
+                <label for="senha" id="labelSenha">Senha</label>
+                <i class='bx bx-low-vision' id="btn-eye"></i>
+            </div>
+            <div class="justify-center">
+                <button class="btn-login">Entrar</button>
+                <hr/>
+            </div>
+            <div class="justify-center">
+                
+                <p>Não tem um cadastro? <br>
+                <a href="cadastro.html">Clique aqui</a> para se cadastrar.</p>
+            </div>
+            
+        </div>
+        
+    </div>
+    <script src="assets/scripts/index.js"></script>
+</body>
+</html>

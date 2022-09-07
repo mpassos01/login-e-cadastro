@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="assets/style/cadastro.css">
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+
+</head>
+<body>
+    <div class="container">        
+        <div class="card">
+            <h1>Cadastrar</h1>
+            <div id="msgError"></div>
+            <div id="msgSuccess"></div>
+            <div class="label-float">
+                <input type="text" name="nome" id="nome" required>
+                <label for="nome" id="labelNome">Nome</label>
+            </div>
+            <div class="label-float">
+                <input type="text" name="usuario" id="usuario" required>
+                <label for="usuario" id="labelUsuario">Usuário</label>
+            </div>
+            <div class="label-float">
+                <input type="password" name="senha" id="senha" required>
+                <label for="senha" id="labelSenha">Senha</label>
+                <i class='bx bx-low-vision' id="btn-eye-senha"></i>
+            </div>
+            <div class="label-float">
+                <input type="password" name="confirmSenha" id="confirmSenha" required>
+                <label for="confirmSenha" id="labelConfirmSenha">Confirmar senha</label>
+                <i class='bx bx-low-vision' id="btn-eye-confirm-senha"></i>
+            </div>
+            <div class="justify-center">
+                <button class="btn-login" onclick="cadastrar()">Cadastrar</button>
+                <hr/>
+            </div>
+            <div class="justify-center">
+                
+                <p>Já tem uma conta? <br>
+                <a href="index.html">Clique aqui</a> para logar.</p>
+            </div>
+            
+        </div>
+        
+    </div>
+    <script src="assets/scripts/cadastro.js"></script>
+</body>
+</html>
