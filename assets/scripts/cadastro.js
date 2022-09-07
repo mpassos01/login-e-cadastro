@@ -101,6 +101,7 @@ btnEyeConfirm.addEventListener("click", () => {
 //Fim da função de vizualizar a senha
 
 function cadastrar() {
+  verificarUser()
   if (validNome && validUsuario && validSenha && validConfirmSenha) {
     salvarDados();
     msgSuccess.setAttribute("style", "display: block");
@@ -124,19 +125,26 @@ function cadastrar() {
 function salvarDados() {
   let listaUser = JSON.parse(localStorage.getItem("listaUser") || "[]");
 
-  // if(listaUser[1].userCad === usuario.value) {
-  //     msgError.setAttribute('style', 'display: block')
-  //     msgError.innerHTML = 'Usuário já cadastrado!'
-  //     user.setAttribute('style', 'border-color: red')
-  //     senha.setAttribute('style', 'border-color: red')
-  //     console.log('entrou no if');
-  // } else {
   listaUser.push({
     nomeCad: nome.value,
     userCad: usuario.value,
     senhaCad: senha.value,
   });
 
-  localStorage.setItem("listaUser", JSON.stringify(listaUser));
-  // }
-}
+  localStorage.setItem('listaUser', JSON.stringify(listaUser));
+  }
+
+
+  function verificarUser() {
+
+    let listaUser = JSON.parse(localStorage.getItem("listaUser") || "[]");
+
+    if(listaUser[1].userCad === usuario.value) {
+      msgError.setAttribute('style', 'display: block')
+      msgError.innerHTML = 'Usuário já cadastrado!'
+      labelUsuario.innerHTML ='TO AQUIII'
+
+      console.log('Entrou no IF');
+    } 
+    return
+  }
