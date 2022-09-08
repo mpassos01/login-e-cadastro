@@ -101,9 +101,19 @@ btnEyeConfirm.addEventListener('click', () => {
 //Fim da função de vizualizar a senha
 
 function cadastrar() {
-  verificarUser()
-  if (validNome && validUsuario && validSenha && validConfirmSenha) {
-    salvarDados();
+   let listaUser = JSON.parse(localStorage.getItem('listaUser') || '[]')
+
+  let listaUserMap = listaUser.map((item) => item.userCad)
+  
+  if (listaUserMap.includes(usuario.value)) {
+    msgError.setAttribute('style', 'display: block')
+    msgError.innerHTML = 'Usuário já cadastrado!'
+    labelUsuario.setAttribute('style', 'color: red')
+    usuario.setAttribute('style', 'border-color: red')
+
+    usuario.focus()
+  } else if (validNome && validUsuario && validSenha && validConfirmSenha) {
+    salvarDados()
     msgSuccess.setAttribute('style', 'display: block')
     msgSuccess.innerHTML = '<strong>Cadastrado com sucesso!</strong>'
     msgError.setAttribute('style', 'display: none')
@@ -111,7 +121,7 @@ function cadastrar() {
 
     setTimeout(() => {
       window.location.href = 'index.html'
-    }, 3000)
+    }, 2000)
   } else {
     msgError.setAttribute('style', 'display: block')
     msgError.innerHTML =
@@ -123,7 +133,7 @@ function cadastrar() {
 
 //Salvar dados em localStrorage
 function salvarDados() {
-  let listaUser = JSON.parse(localStorage.getItem("listaUser") || "[]")
+  let listaUser = JSON.parse(localStorage.getItem('listaUser') || '[]')
 
   listaUser.push({
     nomeCad: nome.value,
@@ -132,19 +142,4 @@ function salvarDados() {
   });
 
   localStorage.setItem('listaUser', JSON.stringify(listaUser))
-  }
-
-
-  function verificarUser() {
-
-    let listaUser = JSON.parse(localStorage.getItem("listaUser") || "[]");
-
-    if(listaUser[1].userCad === usuario.value) {
-      msgError.setAttribute('style', 'display: block')
-      msgError.innerHTML = 'Usuário já cadastrado!'
-      labelUsuario.innerHTML ='TO AQUIII'
-
-      console.log('Entrou no IF')
-    } 
-    return
   }

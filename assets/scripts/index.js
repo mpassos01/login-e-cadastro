@@ -29,7 +29,7 @@ function entrar() {
 
   listaUser = JSON.parse(localStorage.getItem('listaUser'))
 
-  listaUser.forEach((item) => {
+  listaUser.map((item) => {
     if (user.value == item.userCad && senha.value == item.senhaCad) {
       userValid = {
         nome: item.nomeCad,
@@ -50,15 +50,15 @@ function entrar() {
     localStorage.setItem('userLogado', JSON.stringify(userValid))
   } else {
     labelUsuario.setAttribute('style', 'color: red')
-    user.setAttribute('style', 'color: red')
+    user.setAttribute('style', 'border-color: red')
     labelSenha.setAttribute('style', 'color: red')
-    senha.setAttribute('style', 'color: red')
+    senha.setAttribute('style', 'border-color: red')
     msgError.setAttribute('style', 'display: block')
     msgError.innerHTML = 'Usuário ou senha incorretos!'
 
     user.focus()
   }
-  if(listaUser.length === 0) {
+  if(!listaUser.includes(item.userCad)) {
     msgError.setAttribute('style', 'display: block')
 
     msgError.innerHTML = 'Você ainda não tem cadastro.'
