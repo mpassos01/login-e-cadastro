@@ -1,33 +1,33 @@
-const btnEye = document.querySelector("#btn-eye");
+const btnEye = document.querySelector('#btn-eye')
 // const btnEntrar = document.querySelector(".btn-login");
 
-btnEye.addEventListener("click", () => {
-  const senha = document.querySelector("#senha");
-  if (senha.getAttribute("type") == "password") {
-    senha.setAttribute("type", "text");
+btnEye.addEventListener('click', () => {
+  const senha = document.querySelector('#senha')
+  if (senha.getAttribute('type') == 'password') {
+    senha.setAttribute('type', 'text')
   } else {
-    senha.setAttribute("type", "password");
+    senha.setAttribute('type', 'password')
   }
-});
+})
 
 function entrar() {
-  const user = document.querySelector("#usuario");
-  const labelUsuario = document.querySelector("#labelUsuario");
+  const user = document.querySelector('#usuario')
+  const labelUsuario = document.querySelector('#labelUsuario')
 
-  const senha = document.querySelector("#senha");
-  const labelSenha = document.querySelector("#labelSenha");
+  const senha = document.querySelector('#senha')
+  const labelSenha = document.querySelector('#labelSenha')
 
-  let msgError = document.querySelector("#msgError");
+  let msgError = document.querySelector('#msgError')
 
-  let listaUser = [];
+  let listaUser = []
 
   let userValid = {
     nome: '',
     user: '',
     senha: '',
-  };
+  }
 
-  listaUser = JSON.parse(localStorage.getItem('listaUser'));
+  listaUser = JSON.parse(localStorage.getItem('listaUser'))
 
   listaUser.forEach((item) => {
     if (user.value == item.userCad && senha.value == item.senhaCad) {
@@ -35,12 +35,12 @@ function entrar() {
         nome: item.nomeCad,
         user: item.userCad,
         senha: item.senhaCad,
-      };
+      }
     }
-  });
+  })
 
   if (user.value == userValid.user && senha.value == userValid.senha) {
-    location.assign("../inicio.html");
+    location.assign('../inicio.html')
 
     //Criação do token para segurança. Dessa forma, o user não consegue acessar o sistema sem estar autenticado.
     let token = Math.random().toString(16).substring(2)
@@ -56,7 +56,7 @@ function entrar() {
     msgError.setAttribute('style', 'display: block')
     msgError.innerHTML = 'Usuário ou senha incorretos!'
 
-    user.focus();
+    user.focus()
   }
   if(listaUser.length === 0) {
     msgError.setAttribute('style', 'display: block')
