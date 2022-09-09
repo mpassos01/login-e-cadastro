@@ -46,7 +46,7 @@ function entrar() {
     //Criação do token para segurança. Dessa forma, o user não consegue acessar o sistema sem estar autenticado.
     let token = Math.random().toString(16).substring(2)
 
-    localStorage.setItem('token', token)
+    localStorage.setItem('token', token);
 
     localStorage.setItem('userLogado', JSON.stringify(userValid))
   } else {
