@@ -40,7 +40,8 @@ function entrar() {
   })
 
   if (user.value == userValid.user && senha.value == userValid.senha) {
-    window.location.href = '../inicio.html'
+    // window.location.href = '../inicio.html'
+    location.assign('../inicio.html')
 
     //Criação do token para segurança. Dessa forma, o user não consegue acessar o sistema sem estar autenticado.
     let token = Math.random().toString(16).substring(2)
