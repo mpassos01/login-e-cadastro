@@ -5,7 +5,7 @@ logado.innerHTML = `Bem-vindo ${userLogado.nome}!`;
 
 if(localStorage.getItem('token') == null) {
   alert("Você precisa estar logado para acessar essa página!")
-  location.assign("../index.html")
+  location.assign("../pages/index.html")
 }
 
 function sair() {

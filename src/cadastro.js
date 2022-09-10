@@ -120,7 +120,8 @@ function cadastrar() {
     msgError.innerHTML = ''
 
     setTimeout(() => {
-      window.location.href = 'index.html'
+      location.assign('../index.html')
+      // window.location.href = '../index.html'
     }, 2000)
   } else {
     msgError.setAttribute('style', 'display: block')
